@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(grep -E \"^d|\\\\.md$|\\\\.json$|\\\\.config\")",
-      "Bash(grep -E \"\\(package\\\\.json|tsconfig|\\\\.env|\\\\.ts$|\\\\.js$\\)\")",
-      "Bash(npm install *)"
-    ]
-  }
-}

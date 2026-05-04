@@ -1,5 +1,5 @@
 export interface MonitoredService {
-  id: number;
+  id: string;
   name: string;
   baseUrl: string;
   healthEndpoint: string;
@@ -11,8 +11,8 @@ export interface MonitoredService {
 }
 
 export interface HealthCheckResult {
-  id: number;
-  serviceId: number;
+  id: string;
+  serviceId: string;
   statusCode: number | null;
   responseTimeMs: number | null;
   isSuccess: boolean;
@@ -24,8 +24,8 @@ export type IncidentStatus = "Active" | "Resolved";
 export type IncidentSeverity = "Low" | "Medium" | "High";
 
 export interface Incident {
-  id: number;
-  serviceId: number;
+  id: string;
+  serviceId: string;
   serviceName?: string;
   status: IncidentStatus;
   reason: string;
@@ -42,8 +42,8 @@ export type AnomalyType =
 export type AnomalyStatus = "Active" | "Resolved";
 
 export interface Anomaly {
-  id: number;
-  serviceId: number;
+  id: string;
+  serviceId: string;
   serviceName?: string;
   type: AnomalyType;
   currentValue: number;
@@ -55,11 +55,11 @@ export interface Anomaly {
 }
 
 export interface IncidentCorrelation {
-  id: number;
-  downstreamIncidentId: number;
-  upstreamIncidentId: number;
-  downstreamServiceId: number;
-  upstreamServiceId: number;
+  id: string;
+  downstreamIncidentId: string;
+  upstreamIncidentId: string;
+  downstreamServiceId: string;
+  upstreamServiceId: string;
   upstreamServiceName?: string;
   downstreamServiceName?: string;
   confidenceScore: number;

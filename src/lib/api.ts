@@ -28,29 +28,29 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 export const api = {
   services: {
     list: () => request<MonitoredService[]>('/monitoredservices'),
-    get: (id: number) => request<MonitoredService>(`/monitoredservices/${id}`),
+    get: (id: string) => request<MonitoredService>(`/monitoredservices/${id}`),
     create: (data: CreateServicePayload) =>
       request<MonitoredService>('/monitoredservices', {
         method: 'POST',
         body: JSON.stringify(data),
       }),
-    update: (id: number, data: UpdateServicePayload) =>
+    update: (id: string, data: UpdateServicePayload) =>
       request<MonitoredService>(`/monitoredservices/${id}`, {
         method: 'PUT',
         body: JSON.stringify(data),
       }),
-    delete: (id: number) =>
+    delete: (id: string) =>
       request<void>(`/monitoredservices/${id}`, { method: 'DELETE' }),
-    runCheck: (id: number) =>
+    runCheck: (id: string) =>
       request<void>(`/monitoredservices/${id}/run-check`, { method: 'POST' }),
-    metrics: (id: number) =>
+    metrics: (id: string) =>
       request<ServiceMetrics>(`/monitoredservices/${id}/metrics`),
   },
 
   incidents: {
     list: () => request<Incident[]>('/incidents'),
-    get: (id: number) => request<Incident>(`/incidents/${id}`),
-    correlations: (id: number) =>
+    get: (id: string) => request<Incident>(`/incidents/${id}`),
+    correlations: (id: string) =>
       request<IncidentCorrelation[]>(`/incidents/${id}/correlations`),
   },
 
